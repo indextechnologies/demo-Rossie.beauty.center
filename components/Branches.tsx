@@ -30,7 +30,7 @@ export default function Branches() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="sucursales" className="py-32 md:py-40 bg-[#FEFCF9]" ref={ref}>
+    <section id="sucursales" className="pt-12 pb-24 bg-[#FEFCF9]" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         {/* Header */}
         <motion.p

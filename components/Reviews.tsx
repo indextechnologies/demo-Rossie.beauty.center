@@ -60,7 +60,7 @@ export default function Reviews() {
   }, []);
 
   return (
-    <section id="reviews" className="py-32 md:py-40 bg-[#FEFCF9] overflow-hidden" ref={ref}>
+    <section id="reviews" className="pt-20 pb-12 bg-[#FEFCF9] overflow-hidden" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 md:px-12 mb-16">
         <motion.p
           initial={{ opacity: 0, x: -20 }}
@@ -132,14 +132,6 @@ export default function Reviews() {
         </motion.div>
       </motion.div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="text-center text-xs text-[#6B6B6B] mt-10 tracking-wide"
-      >
-        Más de 5★ en Google Maps · Asunción, Paraguay
-      </motion.p>
     </section>
   );
 }

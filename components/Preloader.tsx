@@ -28,12 +28,12 @@ export default function Preloader() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col items-center gap-6 px-10"
           >
-            <div className="relative w-[120px] h-[120px] p-3">
+            <div className="relative w-[200px] h-[200px] p-4">
               <Image
                 src="/rossie-logo.jpeg"
                 alt="Rossie Beauty Center"
                 fill
-                className="object-contain"
+                className="object-contain mix-blend-multiply"
                 priority
               />
             </div>
