@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -11,12 +12,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 md:gap-16 pb-14 border-b border-white/10">
           {/* Brand */}
           <div>
-            <p
-              className="text-3xl font-light mb-4 text-white"
-              style={{ fontFamily: "var(--font-cormorant), serif" }}
-            >
-              Rossie<span className="italic text-[#B8946A]"> Beauty</span>
-            </p>
+            <div className="relative w-[100px] h-[100px] p-2 mb-5 bg-[#FEFCF9]/8 rounded-sm">
+              <Image
+                src="/rossie-logo.jpeg"
+                alt="Rossie Beauty Center"
+                fill
+                className="object-contain"
+              />
+            </div>
             <p className="text-sm text-white/50 leading-loose font-light max-w-xs">
               Espacio premium dedicado al cuidado, sofisticación y bienestar en
               Asunción, Paraguay.

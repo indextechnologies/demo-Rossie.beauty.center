@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: "Rossie Beauty Center | Nails Express",
   description:
     "Espacio premium dedicado al cuidado, sofisticación y bienestar de manos, pies y estética integral. Dos sucursales en Asunción, Paraguay.",
+  icons: {
+    icon: "/rossie-logo.jpeg",
+    apple: "/rossie-logo.jpeg",
+  },
   openGraph: {
     title: "Rossie Beauty Center",
     description: "Tu espacio de belleza y bienestar en Asunción.",

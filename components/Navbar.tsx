@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const links = [
   { label: "Nosotros", href: "#nosotros" },
@@ -32,12 +33,16 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
-          className="font-[var(--font-cormorant)] text-2xl font-light tracking-[0.15em] text-[#1A1A1A]"
-          style={{ fontFamily: "var(--font-cormorant), serif" }}
-        >
-          Rossie<span className="text-[#B8946A]"> Beauty</span>
+        <a href="#" className="flex items-center">
+          <div className="relative w-[110px] h-[52px] p-1">
+            <Image
+              src="/rossie-logo.jpeg"
+              alt="Rossie Beauty Center"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </a>
 
         {/* Desktop Nav */}
