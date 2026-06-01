@@ -5,79 +5,71 @@ import { useRef, useState } from "react";
 
 const categories = [
   {
-    id: "nails",
-    label: "Manicura & Nails Express",
+    id: "unas",
+    label: "Uñas",
     services: [
-      {
-        name: "Uñas Esculpidas (Acrílico / Gel)",
-        desc: "Construcción completa con acabado impecable y larga duración.",
-        price: "Gs. 120.000",
-      },
-      {
-        name: "Semipermanente",
-        desc: "Esmalte de larga duración con brillo intenso y secado al instante.",
-        price: "Gs. 80.000",
-      },
-      {
-        name: "Nail Art Personalizado",
-        desc: "Diseños a medida, desde minimalistas hasta editorial.",
-        price: "Gs. 50.000 (adicional)",
-      },
-      {
-        name: "Cuidado de Manos",
-        desc: "Limado, cutículas, hidratación profunda y esmaltado clásico.",
-        price: "Gs. 40.000",
-      },
+      { name: "Uñas Esculpidas (Acrílico / Gel)", desc: "Construcción completa con acabado impecable y larga duración.", price: "Gs. 120.000" },
+      { name: "Semipermanente", desc: "Esmalte de larga duración con brillo intenso y secado al instante.", price: "Gs. 80.000" },
+      { name: "Nail Art Personalizado", desc: "Diseños a medida, desde minimalistas hasta editorial.", price: "Gs. 50.000 (adicional)" },
+      { name: "Cuidado de Manos", desc: "Limado, cutículas, hidratación profunda y esmaltado clásico.", price: "Gs. 40.000" },
     ],
   },
   {
-    id: "pedicure",
-    label: "Pedicura Premium",
+    id: "pelo",
+    label: "Pelo",
     services: [
-      {
-        name: "Pedicura Spa Completa",
-        desc: "Baño de pies, exfoliación, masaje y esmaltado. Puro relax.",
-        price: "Gs. 90.000",
-      },
-      {
-        name: "Exfoliación + Hidratación Intensiva",
-        desc: "Tratamiento para pies con textura suave y renovada.",
-        price: "Gs. 70.000",
-      },
-      {
-        name: "Esmaltado de Larga Duración",
-        desc: "Semipermanente para pies con resistencia superior.",
-        price: "Gs. 60.000",
-      },
+      { name: "Lavado + Secado Profesional", desc: "Higiene capilar con productos premium y finalización perfecta.", price: "Gs. 45.000" },
+      { name: "Nutrición Profunda", desc: "Keratina, máscara reconstructora o tratamiento de brillo intensivo.", price: "Gs. 120.000" },
+      { name: "Corte Profesional", desc: "Corte personalizado según tu estructura facial y estilo de vida.", price: "Gs. 80.000" },
+      { name: "Coloración / Balayage", desc: "Coloración delicada, mechas, balayage o fantasía. Pigmentos premium.", price: "Gs. 250.000" },
     ],
   },
   {
-    id: "estetica",
-    label: "Estética Integral",
+    id: "skincare",
+    label: "Skincare",
     services: [
-      {
-        name: "Diseño y Laminado de Cejas",
-        desc: "Definición perfecta que enmarca tu mirada de forma natural.",
-        price: "Gs. 70.000",
-      },
-      {
-        name: "Lifting de Pestañas",
-        desc: "Curvado y volumen sin extensiones. Efecto duradera y natural.",
-        price: "Gs. 120.000",
-      },
-      {
-        name: "Tratamiento Facial Hidratante",
-        desc: "Limpieza profunda, hidratación y luminosidad para tu piel.",
-        price: "Gs. 150.000",
-      },
+      { name: "Limpieza Facial Profunda", desc: "Extracción, vapozone y tratamiento purificante para piel radiante.", price: "Gs. 120.000" },
+      { name: "Hidratación Intensiva", desc: "Sérum, mascarilla y crema activa para piel nutrida y firme.", price: "Gs. 100.000" },
+      { name: "Tratamiento Luminosidad", desc: "Vitamina C, ácidos suaves y finalizador iluminador de alta gama.", price: "Gs. 140.000" },
+    ],
+  },
+  {
+    id: "makeup",
+    label: "Make-up",
+    services: [
+      { name: "Maquillaje Social Premium", desc: "Look natural a sofisticado, adaptado a tu tono de piel y evento.", price: "Gs. 130.000" },
+      { name: "Estilismo para Eventos", desc: "Producción completa para bodas, quince años, galas y sesiones de fotos.", price: "Gs. 200.000" },
+    ],
+  },
+  {
+    id: "podologia",
+    label: "Podología",
+    services: [
+      { name: "Tratamiento Podológico Integral", desc: "Callicida, limas especiales, cuidado ungueal y finalización terapéutica.", price: "Gs. 90.000" },
+      { name: "Spa de Pies Especializado", desc: "Baño termal, exfoliación, masaje y esmaltado de larga duración.", price: "Gs. 120.000" },
+    ],
+  },
+  {
+    id: "masaje",
+    label: "Masaje",
+    services: [
+      { name: "Masaje Relajante (60 min)", desc: "Técnica sueca con aceites esenciales para liberar tensión y estrés.", price: "Gs. 120.000" },
+      { name: "Masaje Descontracturante (60 min)", desc: "Trabajo profundo en zona lumbar, cervical y hombros contracturados.", price: "Gs. 150.000" },
+      { name: "Spa Corporal Completo", desc: "Exfoliación + envoltura + masaje completo. Experiencia de bienestar total.", price: "Gs. 250.000" },
     ],
   },
 ];
 
+function gridClass(count: number): string {
+  if (count === 2) return "grid-cols-1 sm:grid-cols-2";
+  if (count === 4) return "grid-cols-1 sm:grid-cols-2";
+  return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+}
+
 export default function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [active, setActive] = useState("nails");
+  const [active, setActive] = useState("unas");
 
   const current = categories.find((c) => c.id === active)!;
 
@@ -101,7 +93,7 @@ export default function Services() {
             className="text-5xl md:text-6xl font-light text-[#1A1A1A] max-w-xl"
             style={{ fontFamily: "var(--font-cormorant), serif" }}
           >
-            Menú de <span className="italic text-[#C4A0A0]">servicios</span>
+            Nuestros <span className="italic text-[#C4A0A0]">Servicios</span>
           </motion.h2>
         </div>
 
@@ -110,13 +102,13 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="flex flex-wrap gap-3 mb-14"
+          className="flex flex-wrap gap-2 mb-14"
         >
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActive(cat.id)}
-              className={`px-6 py-3 text-xs tracking-[0.15em] uppercase transition-all duration-300 ${
+              className={`px-5 py-2.5 text-xs tracking-[0.15em] uppercase transition-all duration-300 ${
                 active === cat.id
                   ? "bg-[#1A1A1A] text-white"
                   : "border border-[#E8DDD5] text-[#6B6B6B] hover:border-[#B8946A] hover:text-[#B8946A]"
@@ -127,13 +119,13 @@ export default function Services() {
           ))}
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid — dynamic columns based on item count */}
         <motion.div
           key={active}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#E8DDD5]"
+          transition={{ duration: 0.4 }}
+          className={`grid gap-px bg-[#E8DDD5] ${gridClass(current.services.length)}`}
         >
           {current.services.map((svc, i) => (
             <div
@@ -145,7 +137,7 @@ export default function Services() {
                   0{i + 1}
                 </span>
                 <span
-                  className="text-base text-[#B8946A] font-light"
+                  className="text-base text-[#B8946A] font-light text-right"
                   style={{ fontFamily: "var(--font-cormorant), serif" }}
                 >
                   {svc.price}
@@ -165,7 +157,6 @@ export default function Services() {
           ))}
         </motion.div>
 
-        {/* Note */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
