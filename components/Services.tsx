@@ -224,23 +224,23 @@ function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
       </span>
 
       <h3
-        className="text-lg md:text-xl font-light text-[#1A1A1A] mb-2 leading-snug"
+        className="text-lg md:text-xl lg:text-2xl font-light text-[#1A1A1A] mb-2 leading-snug"
         style={{ fontFamily: "var(--font-cormorant), serif" }}
       >
         {item.name}
       </h3>
 
       {item.desc && (
-        <p className="text-xs text-[#6B6B6B] leading-relaxed font-light mb-3">{item.desc}</p>
+        <p className="text-xs text-[#3A3A3A] leading-relaxed font-light mb-3">{item.desc}</p>
       )}
 
       {/* Variants */}
       {item.variants && (
         <div className="mt-3 space-y-1.5">
           {item.variants.map((v) => (
-            <div key={v.label} className="flex justify-between items-center text-xs">
-              <span className="text-[#6B6B6B] font-light">{v.label}</span>
-              <span className="text-[#B8946A]" style={{ fontFamily: "var(--font-cormorant), serif" }}>
+            <div key={v.label} className="flex justify-between items-center text-xs md:text-sm">
+              <span className="text-[#3A3A3A] font-light">{v.label}</span>
+              <span className="text-[#7A5C3A] font-medium" style={{ fontFamily: "var(--font-cormorant), serif" }}>
                 {v.price}
               </span>
             </div>
@@ -252,13 +252,13 @@ function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
       {item.price && !item.variants && (
         <div className="mt-3 flex items-center gap-2 flex-wrap">
           <span
-            className="text-base text-[#B8946A] font-light"
+            className="text-base md:text-lg text-[#7A5C3A] font-medium"
             style={{ fontFamily: "var(--font-cormorant), serif" }}
           >
             {item.price}
           </span>
           {item.originalPrice && (
-            <span className="text-xs text-[#6B6B6B]/60 line-through font-light">
+            <span className="text-xs text-[#888888] line-through font-light">
               {item.originalPrice}
             </span>
           )}
@@ -273,7 +273,7 @@ function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
 function SectionBlock({ section, sectionIndex }: { section: Section; sectionIndex: number }) {
   return (
     <div className={sectionIndex > 0 ? "mt-6" : ""}>
-      <p className="text-[10px] tracking-[0.3em] uppercase text-[#B8946A]/70 mb-3 px-1">
+      <p className="text-[10px] tracking-[0.3em] uppercase text-[#7A5C3A] mb-3 px-1">
         {section.label}
       </p>
       <div className={`grid gap-px bg-[#E8DDD5] ${gridClass(section.items.length)}`}>
@@ -351,7 +351,7 @@ export default function Services() {
             <svg className="w-3.5 h-3.5 text-[#B8946A] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <p className="text-xs text-[#6B6B6B] font-light italic leading-relaxed">
+            <p className="text-xs text-[#3A3A3A] font-light italic leading-relaxed">
               {current.availabilityNote}
             </p>
           </motion.div>
