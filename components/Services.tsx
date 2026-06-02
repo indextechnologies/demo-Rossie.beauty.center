@@ -14,6 +14,7 @@ type ServiceItem = {
   variants?: Variant[];
   isPackage?: boolean;
   featured?: boolean;
+  fullWidth?: boolean;
 };
 type Section = { label: string; items: ServiceItem[] };
 type Category = {
@@ -44,7 +45,7 @@ const categories: Category[] = [
           { name: "Esmaltado Semipermanente", desc: "Larga duración con brillo intenso.", price: "Gs. 80.000" },
           { name: "Kapping / Soft Gel", desc: "Refuerzo natural y flexible con acabado prémium.", price: "Gs. 90.000" },
           { name: "Spa de Manos y Pies", desc: "Exfoliación profunda, hidratación y esmaltado.", price: "Gs. 130.000" },
-          { name: "Diseños Personalizados (Nail Art)", desc: "Desde minimalista hasta editorial.", price: "Gs. 50.000" },
+          { name: "Diseños Personalizados (Nail Art)", desc: "Desde minimalista hasta editorial.", price: "Gs. 50.000", fullWidth: true },
         ],
       },
     ],
@@ -211,7 +212,7 @@ function gridClass(count: number): string {
 /* ─── Sub-components ─── */
 function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
   return (
-    <div className={`bg-[#FEFCF9] p-6 md:p-8 hover:bg-white transition-colors duration-300 group relative ${item.featured ? "border-l-2 border-[#B8946A]" : ""}`}>
+    <div className={`bg-[#FEFCF9] p-6 md:p-8 hover:bg-white transition-colors duration-300 group relative ${item.featured ? "border-l-2 border-[#B8946A]" : ""} ${item.fullWidth ? "sm:col-span-2" : ""}`}>
       {/* Badge */}
       {item.badge && (
         <span className="absolute top-4 right-4 bg-[#B8946A] text-white text-[10px] tracking-widest px-2 py-0.5 uppercase">
