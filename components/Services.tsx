@@ -212,7 +212,7 @@ function gridClass(count: number): string {
 /* ─── Sub-components ─── */
 function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
   return (
-    <div className={`bg-[#FEFCF9] p-6 md:p-8 hover:bg-white transition-colors duration-300 group relative ${item.featured ? "border-l-2 border-[#B8946A]" : ""} ${item.fullWidth ? "sm:col-span-2" : ""}`}>
+    <div className={`bg-[#FEFCF9] p-6 md:p-8 hover:bg-white transition-colors duration-300 group relative ${item.featured ? "border-l-2 border-[#B8946A]" : ""} ${item.fullWidth ? "md:col-span-2" : ""}`}>
       {/* Badge */}
       {item.badge && (
         <span className="absolute top-4 right-4 bg-[#B8946A] text-white text-[10px] tracking-widest px-2 py-0.5 uppercase">
