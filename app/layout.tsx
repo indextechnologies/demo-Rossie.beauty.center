@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   description:
     "Espacio premium dedicado al cuidado, sofisticación y bienestar de manos, pies y estética integral. Dos sucursales en Asunción, Paraguay.",
   icons: {
-    icon: "/rossie-logo.jpeg",
-    apple: "/rossie-logo.jpeg",
+    icon: "/rossie-logo.png",
+    apple: "/rossie-logo.png",
   },
   openGraph: {
     title: "Rossie Beauty Center",

@@ -32,14 +32,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-        {/* Logo — mix-blend-multiply elimina el fondo blanco del JPEG */}
+        {/* Logo */}
         <a href="#" className="flex items-center">
           <div className="relative w-[110px] h-[52px]">
             <Image
-              src="/rossie-logo.jpeg"
+              src="/rossie-logo.png"
               alt="Rossie Beauty Center"
               fill
-              className="object-contain mix-blend-multiply"
+              className="object-contain"
               priority
             />
           </div>

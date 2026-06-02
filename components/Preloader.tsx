@@ -30,10 +30,10 @@ export default function Preloader() {
           >
             <div className="relative w-[200px] h-[200px] p-4">
               <Image
-                src="/rossie-logo.jpeg"
+                src="/rossie-logo.png"
                 alt="Rossie Beauty Center"
                 fill
-                className="object-contain mix-blend-multiply"
+                className="object-contain"
                 priority
               />
             </div>

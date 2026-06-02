@@ -12,9 +12,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 md:gap-16 pb-14 border-b border-white/10">
           {/* Brand */}
           <div>
-            <div className="relative w-[100px] h-[100px] p-2 mb-5 bg-[#FEFCF9]/8 rounded-sm">
+            <div className="relative w-[100px] h-[100px] p-2 mb-5">
               <Image
-                src="/rossie-logo.jpeg"
+                src="/rossie-logo.png"
                 alt="Rossie Beauty Center"
                 fill
                 className="object-contain"
