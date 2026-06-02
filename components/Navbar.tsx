@@ -51,14 +51,20 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-xs tracking-[0.2em] uppercase text-[#6B6B6B] hover:text-[#B8946A] transition-colors duration-300"
+              className={`text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:text-[#B8946A] ${
+                scrolled ? "text-[#2A2A2A]" : "text-white/90"
+              }`}
             >
               {l.label}
             </a>
           ))}
           <a
             href="#sucursales"
-            className="text-xs tracking-[0.2em] uppercase px-6 py-2.5 border border-[#B8946A] text-[#B8946A] hover:bg-[#B8946A] hover:text-white transition-all duration-300"
+            className={`text-xs tracking-[0.2em] uppercase px-6 py-2.5 border transition-all duration-300 ${
+              scrolled
+                ? "border-[#B8946A] text-[#B8946A] hover:bg-[#B8946A] hover:text-white"
+                : "border-white/70 text-white hover:bg-white hover:text-[#1A1A1A]"
+            }`}
           >
             Reservar Turno
           </a>
@@ -70,9 +76,9 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           aria-label="Menú"
         >
-          <span className={`block h-px w-6 bg-[#1A1A1A] transition-all duration-300 ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
-          <span className={`block h-px w-6 bg-[#1A1A1A] transition-all duration-300 ${open ? "opacity-0" : ""}`} />
-          <span className={`block h-px w-6 bg-[#1A1A1A] transition-all duration-300 ${open ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+          <span className={`block h-px w-6 transition-all duration-300 ${scrolled ? "bg-[#1A1A1A]" : "bg-white"} ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
+          <span className={`block h-px w-6 transition-all duration-300 ${scrolled ? "bg-[#1A1A1A]" : "bg-white"} ${open ? "opacity-0" : ""}`} />
+          <span className={`block h-px w-6 transition-all duration-300 ${scrolled ? "bg-[#1A1A1A]" : "bg-white"} ${open ? "-rotate-45 -translate-y-[7px]" : ""}`} />
         </button>
       </div>
 

@@ -1,8 +1,74 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+
+function useCountUp(end: number, duration: number, active: boolean) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!active) return;
+    let startTime: number | null = null;
+    const step = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * end));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [end, duration, active]);
+  return count;
+}
+
+const stats = [
+  {
+    end: 2,
+    label: "Sucursales",
+    format: (n: number) => `${n}`,
+  },
+  {
+    end: 28100,
+    label: "Seguidores en Instagram",
+    format: (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : `${n}`),
+  },
+  {
+    end: 19,
+    label: "Años de Trayectoria",
+    format: (n: number) => `${n}+`,
+  },
+];
+
+function StatCounter({
+  stat,
+  active,
+  delay,
+}: {
+  stat: (typeof stats)[0];
+  active: boolean;
+  delay: number;
+}) {
+  const [started, setStarted] = useState(false);
+  useEffect(() => {
+    if (!active) return;
+    const t = setTimeout(() => setStarted(true), delay);
+    return () => clearTimeout(t);
+  }, [active, delay]);
+  const count = useCountUp(stat.end, 1800, started);
+  return (
+    <div>
+      <p
+        className="text-3xl font-light text-[#B8946A] mb-1 tabular-nums"
+        style={{ fontFamily: "var(--font-cormorant), serif" }}
+      >
+        {stat.format(count)}
+      </p>
+      <p className="text-xs text-[#6B6B6B] tracking-[0.1em] uppercase leading-snug">
+        {stat.label}
+      </p>
+    </div>
+  );
+}
 
 export default function AboutUs() {
   const ref = useRef(null);
@@ -11,7 +77,6 @@ export default function AboutUs() {
   return (
     <section id="nosotros" className="py-32 md:py-40 bg-[#FEFCF9]" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
-        {/* Section label */}
         <motion.p
           initial={{ opacity: 0, x: -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -21,7 +86,6 @@ export default function AboutUs() {
           — Nuestra filosofía
         </motion.p>
 
-        {/* Asymmetric grid */}
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
           {/* Text block */}
           <div>
@@ -54,33 +118,23 @@ export default function AboutUs() {
                 Utilizamos productos de primera línea y estamos constantemente
                 actualizadas con las últimas tendencias del mundo beauty.
               </p>
-              <p>
-                Dos sucursales en Asunción. Un solo estándar: la excelencia.
-              </p>
+              <p>Dos sucursales en Asunción. Un solo estándar: la excelencia.</p>
             </motion.div>
 
+            {/* Animated stats */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-12 pt-10 border-t border-[#E8DDD5] grid grid-cols-3 gap-6"
             >
-              {[
-                { num: "2", label: "Sucursales" },
-                { num: "500+", label: "Clientes felices" },
-                { num: "100%", label: "Dedicación" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p
-                    className="text-3xl font-light text-[#B8946A] mb-1"
-                    style={{ fontFamily: "var(--font-cormorant), serif" }}
-                  >
-                    {stat.num}
-                  </p>
-                  <p className="text-xs text-[#6B6B6B] tracking-[0.1em] uppercase">
-                    {stat.label}
-                  </p>
-                </div>
+              {stats.map((stat, i) => (
+                <StatCounter
+                  key={stat.label}
+                  stat={stat}
+                  active={isInView}
+                  delay={i * 150}
+                />
               ))}
             </motion.div>
           </div>
@@ -100,7 +154,6 @@ export default function AboutUs() {
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
             </div>
-            {/* Decorative gold border */}
             <div className="absolute -bottom-4 -right-4 w-3/4 h-3/4 border border-[#B8946A]/30 -z-10" />
           </motion.div>
         </div>
