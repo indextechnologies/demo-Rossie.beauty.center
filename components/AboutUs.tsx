@@ -58,12 +58,12 @@ function StatCounter({
   return (
     <div>
       <p
-        className="text-3xl font-light text-[#B8946A] mb-1 tabular-nums"
+        className="text-2xl md:text-3xl font-light text-[#B8946A] mb-1 tabular-nums"
         style={{ fontFamily: "var(--font-cormorant), serif" }}
       >
         {stat.format(count)}
       </p>
-      <p className="text-xs text-[#6B6B6B] tracking-[0.1em] uppercase leading-snug">
+      <p className="text-[10px] md:text-xs text-[#6B6B6B] tracking-[0.05em] md:tracking-[0.1em] uppercase leading-snug">
         {stat.label}
       </p>
     </div>
@@ -75,7 +75,7 @@ export default function AboutUs() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="nosotros" className="py-32 md:py-40 bg-[#FEFCF9]" ref={ref}>
+    <section id="nosotros" className="py-16 md:py-32 lg:py-40 bg-[#FEFCF9]" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.p
           initial={{ opacity: 0, x: -20 }}
@@ -93,7 +93,7 @@ export default function AboutUs() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1 }}
-              className="text-5xl md:text-6xl font-light leading-[1.1] mb-10 text-[#1A1A1A]"
+              className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-8 md:mb-10 text-[#1A1A1A]"
               style={{ fontFamily: "var(--font-cormorant), serif" }}
             >
               Un espacio donde la belleza encuentra su{" "}
@@ -126,7 +126,7 @@ export default function AboutUs() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-12 pt-10 border-t border-[#E8DDD5] grid grid-cols-3 gap-6"
+              className="mt-10 md:mt-12 pt-8 md:pt-10 border-t border-[#E8DDD5] grid grid-cols-3 gap-3 md:gap-6"
             >
               {stats.map((stat, i) => (
                 <StatCounter

@@ -8,7 +8,7 @@ export default function Courses() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="cursos" className="py-24 md:py-32 bg-[#1A1A1A] text-white" ref={ref}>
+    <section id="cursos" className="py-16 md:py-24 lg:py-32 bg-[#1A1A1A] text-white" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.p
           initial={{ opacity: 0, x: -20 }}
@@ -23,7 +23,7 @@ export default function Courses() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1 }}
-          className="text-5xl md:text-6xl font-light leading-[1.1] mb-16 text-white"
+          className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-10 md:mb-16 text-white"
           style={{ fontFamily: "var(--font-cormorant), serif" }}
         >
           Maestría que se{" "}
@@ -35,7 +35,7 @@ export default function Courses() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="max-w-3xl mx-auto border border-white/10 p-10 md:p-14"
+          className="max-w-3xl mx-auto border border-white/10 p-7 md:p-14"
         >
           <p className="text-[#B8946A] text-xs tracking-[0.3em] uppercase mb-5">
             Taller exclusivo

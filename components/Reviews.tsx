@@ -61,7 +61,7 @@ export default function Reviews() {
 
   return (
     <section id="reviews" className="pt-20 pb-12 bg-[#FEFCF9] overflow-hidden" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6 md:px-12 mb-16">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 mb-10 md:mb-16">
         <motion.p
           initial={{ opacity: 0, x: -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -74,7 +74,7 @@ export default function Reviews() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1 }}
-          className="text-5xl md:text-6xl font-light text-[#1A1A1A] max-w-xl"
+          className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1A1A1A] max-w-xl"
           style={{ fontFamily: "var(--font-cormorant), serif" }}
         >
           Experiencias que{" "}
@@ -108,7 +108,7 @@ export default function Reviews() {
           {doubled.map((review, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[320px] md:w-[400px] bg-white border border-[#E8DDD5] p-8 relative"
+              className="flex-shrink-0 w-[260px] sm:w-[320px] md:w-[400px] bg-white border border-[#E8DDD5] p-6 md:p-8 relative"
             >
               {/* Decorative quote */}
               <span

@@ -45,7 +45,7 @@ export default function Branches() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1 }}
-          className="text-5xl md:text-6xl font-light text-[#1A1A1A] mb-16 max-w-xl"
+          className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1A1A1A] mb-10 md:mb-16 max-w-xl"
           style={{ fontFamily: "var(--font-cormorant), serif" }}
         >
           Nuestras <span className="italic text-[#C4A0A0]">sucursales</span>
@@ -56,7 +56,7 @@ export default function Branches() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="relative h-[340px] md:h-[480px] mb-12 overflow-hidden group"
+          className="relative h-[220px] sm:h-[300px] md:h-[480px] mb-8 md:mb-12 overflow-hidden group"
         >
           <Image
             src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1920&q=85"
@@ -65,9 +65,9 @@ export default function Branches() {
             className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/30 to-transparent" />
-          <div className="absolute bottom-0 left-0 p-8">
+          <div className="absolute bottom-0 left-0 p-5 md:p-8">
             <p
-              className="text-white text-3xl font-light italic"
+              className="text-white text-xl md:text-3xl font-light italic"
               style={{ fontFamily: "var(--font-cormorant), serif" }}
             >
               Tu bienestar, nuestra pasión.
@@ -83,7 +83,7 @@ export default function Branches() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 + i * 0.15 }}
-              className="bg-[#FEFCF9] p-10 md:p-14"
+              className="bg-[#FEFCF9] p-7 md:p-14"
             >
               {/* Branch name */}
               <p className="text-[#B8946A] text-xs tracking-[0.25em] uppercase mb-4">

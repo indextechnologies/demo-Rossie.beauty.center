@@ -74,10 +74,10 @@ export default function Services() {
   const current = categories.find((c) => c.id === active)!;
 
   return (
-    <section id="servicios" className="py-32 md:py-40 bg-[#F0E6E6]/30" ref={ref}>
+    <section id="servicios" className="py-16 md:py-32 lg:py-40 bg-[#F0E6E6]/30" ref={ref}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-10 md:mb-20">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -90,7 +90,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="text-5xl md:text-6xl font-light text-[#1A1A1A] max-w-xl"
+            className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1A1A1A] max-w-xl"
             style={{ fontFamily: "var(--font-cormorant), serif" }}
           >
             Nuestros <span className="italic text-[#C4A0A0]">Servicios</span>
@@ -102,7 +102,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="flex flex-wrap gap-2 mb-14"
+          className="flex flex-wrap gap-2 mb-8 md:mb-14"
         >
           {categories.map((cat) => (
             <button
@@ -130,7 +130,7 @@ export default function Services() {
           {current.services.map((svc, i) => (
             <div
               key={i}
-              className="bg-[#FEFCF9] p-8 md:p-10 hover:bg-white transition-colors duration-300 group"
+              className="bg-[#FEFCF9] p-6 md:p-10 hover:bg-white transition-colors duration-300 group"
             >
               <div className="flex justify-between items-start mb-4">
                 <span className="text-xs text-[#B8946A] tracking-[0.2em] font-medium">
